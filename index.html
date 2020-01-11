@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+    
+    <head>
+        <title>Macro Calculator</title>
+        <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Anton|PT+Serif:400,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+		
+    </head>
+    <body>
+	
+        <div id="heading" class="segment">
+            <h1> KAINS MACRO CALCULATOR </h1>
+            <p id="instructions"> Fill in the details below to get your macro targets. </p>
+        </div> <hr style="border:solid 1px #CE2525">
+		
+
+        
+			<div id="weightBox" class="segment">
+           	 <h3> Weight (kg) </h3>
+            	<input type="number" id="weight" placeholder="75">
+        	</div>
+
+        <div id="heightBox" class="segment, greySegment" >
+            <h3> Height (cm) </h3>
+            <input type="number" id="height" placeholder="175">
+        </div>
+
+        <div id="activityBox" class="segment">
+            <h3> Activity Level </h3>
+			<div class="ratingTextDiv">
+				<p class="ratingText"> Well Below Average</p> 
+				<p class="ratingText">Below Average </p> 
+				<p class="ratingText"> Average</p> 
+				<p class="ratingText"> Above Average </p> 
+				<p class="ratingText"> Well Above Average </p>
+			</div> <br>
+            <input type="range" id="activity" min=1 max=5 class="rangeSlider">
+                 
+        </div>
+
+        <div id="muscleBox" class="segment, greySegment" >
+            <h3>Rate your Muscle Mass </h3>
+                <div class="ratingTextDiv">
+				<p class="ratingText"> Well Below Average</p> 
+				<p class="ratingText">Below Average </p> 
+				<p class="ratingText"> Average</p> 
+				<p class="ratingText"> Above Average </p> 
+				<p class="ratingText"> Well Above Average </p>
+			</div> <br>
+            <input type="range" id="muscle" min=1 max=5 class="rangeSlider">
+        </div>
+
+        <div class="segment">
+            <h3>Gender</h3 >
+            <input type="radio" id="genderMale" name="gender" checked>
+            <label for="genderMale"> Male </label><br>
+            <input type="radio" id="genderFemale" name="gender">
+            <label for="genderFemale"> Female </label>
+        </div>
+
+        <div id="goalDiv" class="segment, greySegment">
+            <h3> Current Goal </h3>
+                <div class="radioDiv">
+                    <label for="goalRapidLoss"> Rapid Fat Loss </label><br>
+                    <input type="radio" id="goalRapidLoss" name="goal">
+                </div>
+            
+                <div class="radioDiv">
+                    <label for="goalLoss"> Fat Loss </label><br>
+                    <input type="radio" id="goalLoss" name="goal">
+               </div>
+            
+               <div class="radioDiv">
+                   <label for="goalRecomp" checked> Maintenance/ Recomp</label><br> 
+                   <input type="radio" id="goalRecomp" name="goal" checked>        
+               </div>
+            
+               <div class="radioDiv">
+                   <label for="goalGain"> Muscle Gain </label><br>
+                   <input type="radio" id="goalGain" name="goal">
+               </div>
+            
+                <div class="radioDiv">
+                    <label for="goalRapidGain"> Forced Muscle Gain </label><br>
+                    <input type="radio" id="goalRapidGain" name="goal">
+                </div>
+        </div>
+        
+        
+        <div id="button" class="segment">
+            <button id="submit"> CALCULATE </button>
+        </div>
+
+        <div id="target" class="segment">
+            <h2> MACRO TARGETS </h2>
+            <div id="trainingDayMacros" class="macrosBreakdown" >
+                <h3> Training Day Macros </h3>
+                <p class="targetText" id="carbsText"> Carbs:</p>
+                <p class="targetText" id="proteinText"> Protein:</p>
+                <p class="targetText" id="fatsText" > Fats:</p>
+                <p class="targetText" id="caloriesText"> Calories:</p>
+            </div>   
+            
+             <div id="restDayMacros" class="macrosBreakdown" >
+                <h3> Rest Day Macros </h3>
+                <p class="targetText" id="restCarbsText"> Carbs:</p>
+                <p class="targetText" id="restProteinText"> Protein:</p>
+                <p class="targetText" id="restFatsText" > Fats:</p>
+                <p class="targetText" id="restCaloriesText"> Calories:</p>
+            </div>   
+            
+			
+        </div>
+		
+		
+		<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+		<script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+
+	</body>
+</html>
