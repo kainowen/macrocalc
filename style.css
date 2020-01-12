@@ -1,136 +1,68 @@
 body {
-    padding: 0px;
-    margin: 0px;
-    background-color: white;
-    color: #262626;
-    font-family: 'PT Serif', serif;
-	letter-spacing: 1px;
-	width: 830px;
-}
-h1 {
-    text-align: left;
-   	font-family: 'Anton', sans-serif;
-    font-size: 40px;
-	letter-spacing: 2px;
+	
+	font-family: 'PT Serif', serif;
+	
 }
 
-h2 {
-    text-align: left;
-    font-family: 'Anton', sans-serif;
-    font-size: 30px;
-	letter-spacing: 2px;
+#heading {
+	
+	border-bottom: solid 1px red;	
+	padding-left: 50px;
+	
 }
 
-
-.segment{
-    clear: both;  
-	width: 800px;
-}
-
-#instructions {
-    font-size: 14px;  
-}
-
-div {
-	padding: 10px 10px 10px 30px;	
+h1, h2 {
+	
+	font-family: 'anton', sans-serif;
 	
 }
 
 .greySegment{
-    background-color: #F5F5F5;
-	width: 800px;
+	
+	background-color: #e8e8e8;	
+	
 }
 
-#goalDiv {
-	height: 150px;
+.segment{
+	
+	padding: 20px 30px;
+	
+	
+}
+
+
+#target {
+	
+	background-color: black;	
+	color: white;
+	
+}
+
+.txtIn{
+	
+	padding-left: 15px;	
+	
+}
+
+.rangeSlider{
+	
+	position: relative;
+	left: 50px;
+	padding: 0;
+	
+}
+
+#submit{
+	
+	font-family: 'anton', sans-serif;
+	font-size: 20px;
 	
 }
 
 #button{
-    text-align: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-button {
-   font-family: 'Anton', sans-serif;
-    font-size: 20px;
-	letter-spacing: 2px;
- 	padding: 10px 20px;
-    border-radius: 10px;
-    background-color: #CE2525;
-    border: none;
-    color: white;
-}
-
-button:hover{
-
-    background-color: #BA3C3C;
-   
-}
-
-#target { 
-    background-color: #262626;
-    color: white;
-    height: 350px;
-    text-align: left;
-    display: block;
-    
-}
-
-.macrosBreakdown {
-    width: 350px;
-    float: left;  
-}
-
-.targetText {
-    font-size: 16px; 
-    padding-left: 5px;
-}
-
-input {
-    border-radius: 5px;
-	height: 25px;
-	font-size: 15px;
-}
-
-
-.radioDiv{
-    width: 100px;
-    text-align: center;
-    float:left;
-}
-
-.ratingText {
-	float: left;
-	width: 80px;
+	
 	text-align: center;
-	margin-right: 20px;
 	
 }
 
-.rangeSlider {
-	clear: both;
-	width:410px;
-	margin-left: 70px;
-	-webkit-appearance: none;  /* Override default CSS styles */
- 	appearance: none;
-	width: 400px; /* Full-width */
-  	height: 2px; /* Specified height */
-  	background: #000000; /* Grey background */
-  	outline: none; /* Remove outline */
-  	opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  	-webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  	transition: opacity .2s;
-}
-  
 
-.rangeSlider::-webkit-slider-thumb {
-  	-webkit-appearance: none; /* Override default look */
- 	appearance: none;
-  	width: 15px; /* Set a specific slider handle width */
-  	height: 25px; /* Slider handle height */
-  	background: #CE2525; /* Green background */
-  	cursor: pointer; /* Cursor on hover */
-	border-radius: 5px;
-}
