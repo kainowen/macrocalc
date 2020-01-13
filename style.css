@@ -14,6 +14,12 @@ body {
 h1, h2 {
 	
 	font-family: 'anton', sans-serif;
+	letter-spacing: 2px;
+}
+
+h3{
+	
+	font-weight: bold;	
 	
 }
 
@@ -44,18 +50,12 @@ h1, h2 {
 	
 }
 
-.rangeSlider{
-	
-	position: relative;
-	left: 50px;
-	padding: 0;
-	
-}
 
 #submit{
 	
 	font-family: 'anton', sans-serif;
 	font-size: 20px;
+	letter-spacing: 2px;
 	
 }
 
@@ -66,3 +66,58 @@ h1, h2 {
 }
 
 
+.ratingText {
+	float: left;
+	text-align: center;
+	margin-right: 10px;
+	
+}
+
+.rangeSlider {
+	clear: both;
+	padding: 0;
+	margin-left: 70px;
+	-webkit-appearance: none;  /* Override default CSS styles */
+ 	appearance: none;
+	width: 73%; /* Full-width */
+  	height: 2px; /* Specified height */
+  	background: #000000; /* Grey background */
+  	outline: none; /* Remove outline */
+  	opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  	-webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  	transition: opacity .2s;
+}
+  
+
+.rangeSlider::-webkit-slider-thumb {
+  	-webkit-appearance: none; /* Override default look */
+ 	appearance: none;
+  	width: 15px; /* Set a specific slider handle width */
+  	height: 25px; /* Slider handle height */
+  	background: crimson; /* Green background */
+  	cursor: pointer; /* Cursor on hover */
+	border-radius: 5px;
+}
+
+@media only screen and (max-width: 575px) {
+    .hideOnSmall {
+        display: none;
+    }
+}
+
+.vLo {
+	
+	margin-right: 55%;	
+	
+}
+
+.showOnSmall{
+	display: none;	
+	
+}
+
+@media only screen and (max-width: 575px) {
+    .showOnSmall {
+        display: block;
+    }
+}

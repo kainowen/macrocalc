@@ -18,9 +18,7 @@ submit.click( function(){
 	var gain = $("#goalGain").prop("checked");
 	var forcedGain = $("#goalRapidGain").prop("checked");
 	
-	weight = 80;
-	height = 187;
-	
+
 	
 	function genderLVL() {
 		if (male) {
@@ -77,3 +75,7 @@ submit.click( function(){
 	
 	
 }); 
+
+
+
+
