@@ -3,8 +3,10 @@
     
     <head>
         <title>Macro Calculator</title>
-        <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
+       
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		
 		<link href="https://fonts.googleapis.com/css?family=Anton|PT+Serif:400,700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="style.css">
 		
@@ -38,27 +40,32 @@
 
 			<div id="activityBox" class="segment">
 				<h3> Activity Level </h3>
-				<div class="row ratingTextDiv">
-					<p class="ratingText col-sm-2"> Well Below Average</p> 
-					<p class="ratingText col-sm-2">Below Average </p> 
-					<p class="ratingText col-sm-2"> Average</p> 
-					<p class="ratingText col-sm-2"> Above Average </p> 
-					<p class="ratingText col-sm-2"> Well Above Average </p>
-				</div> <br>
-				<input type="range" id="activity" min=1 max=5 class="rangeSlider form-control-range col-md-9">
-
+				<div class="container">
+					<div class="row ratingTextDiv">
+						<p class="ratingText col-sm-2 showOnSmall"> <span class="vLo">Very Low</span><span>Very High </span></p> 
+						<p class="ratingText col-sm-2 hideOnSmall"> Well Below Average</p> 
+						<p class="ratingText col-sm-2 hideOnSmall">Below Average </p> 
+						<p class="ratingText col-sm-2 hideOnSmall"> Average</p> 
+						<p class="ratingText col-sm-2 hideOnSmall"> Above Average </p> 
+						<p class="ratingText col-sm-2 hideOnSmall" > Well Above Average </p>
+					</div> <br>
+					<input type="range" id="activity" min=1 max=5 class="rangeSlider">
+				</div>
 			</div>
 
 			<div id="muscleBox" class="greySegment segment" >
 				<h3>Rate your Muscle Mass </h3>
+				<div class="container">
 					<div class="row ratingTextDiv">
-						<p class="ratingText col-sm-2" id="muscle1"> Well Below Average</p> 
-						<p class="ratingText col-sm-2" id="muscle2">Below Average </p> 
-						<p class="ratingText col-sm-2" id="muscle3"> Average</p> 
-						<p class="ratingText col-sm-2" id="muscle4"> Above Average </p> 
-						<p class="ratingText col-sm-2" id="muscle5"> Well Above Average </p>
-				</div> <br>
-				<input type="range" id="muscle" min=1 max=5 class="rangeSlider form-control-range col-md-9">
+						<p class="ratingText col-sm-2 showOnSmall"> <span class="vLo">Very Low</span><span>Very High </span></p> 
+						<p class="ratingText col-sm-2 hideOnSmall" id="muscle1"> Well Below Average</p> 
+						<p class="ratingText col-sm-2 hideOnSmall" id="muscle2">Below Average </p> 
+						<p class="ratingText col-sm-2 hideOnSmall" id="muscle3"> Average</p> 
+						<p class="ratingText col-sm-2 hideOnSmall" id="muscle4"> Above Average </p> 
+						<p class="ratingText col-sm-2 hideOnSmall" id="muscle5"> Well Above Average </p>
+					</div> <br>
+					<input type="range" id="muscle" min=1 max=5 class="rangeSlider">
+				</div>
 			</div>
 
 			<div class="segment">
