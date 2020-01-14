@@ -24,9 +24,10 @@ h3{
 }
 
 .greySegment{
-	
+	position: relative;
 	background-color: #e8e8e8;	
-	
+	z-index: 0;
+
 }
 
 .segment{
@@ -73,8 +74,13 @@ h3{
 	
 }
 
+.sliderDiv{
+	margin-left: 53px;
+	width: 75%;
+}
+
 .rangeSlider {
-	margin-left: 55px;
+	width: 100%;
 	-webkit-appearance: none; 
  	appearance: none;
   	height: 2px; 
@@ -84,23 +90,24 @@ h3{
   	transition: opacity .2s;
 }
   
-
 .rangeSlider::-webkit-slider-thumb {
   	-webkit-appearance: none; 
+	position: relative;
  	appearance: none;
   	width: 20px;
   	height: 20px; 
   	background: crimson; 
   	cursor: pointer;
 	border-radius: 50%;
+	
 }
 	
 
 .ticks {
+	padding-left: 1%;
+	width: 99%;
 	position: relative;
-	top: 16px;
-	margin-left: 65px;
-	width: 73%;
+	top: 20px;
   	display: flex;
   	justify-content: space-between;
   	padding: $unit $unit*2;
@@ -108,17 +115,70 @@ h3{
 }
 
 .tick {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 2px;
-  background: #000000;
-  height: $unit;
-  line-height: 8px;
-  margin-bottom: $unit*2;
-  z-index: -1;
-
+  	position: relative;
+  	display: flex;
+  	justify-content: center;
+  	width: 2px;
+  	background: #000000;
+  	height: $unit;
+  	line-height: 7px;
+  	margin-bottom: $unit*2;
+	z-index:-2;
 } 
+
+
+#leftCover1{
+	
+	height: 5px;
+	width: 1%;
+	background-color: white;
+	float: left;
+	position: relative;
+	top: 20px;
+	right:0;
+
+}
+
+
+#rightCover1{
+	
+	height: 5px;
+	width: 1%;
+	background-color: white;
+	float: right;
+	position: relative;
+	top: 20px;
+	left: 0;
+
+}
+
+
+
+#leftCover2{
+	
+	height: 5px;
+	width: 1%;
+	background-color: #e8e8e8;
+	float: left;
+	position: relative;
+	top: 20px;
+	right: 0;
+
+}
+
+
+#rightCover2{
+	
+	height: 5px;
+	width: 1%;
+	background-color: #e8e8e8;
+	float: right;
+	position: relative;
+	top: 20px;
+	left: 0;
+
+}
+
 
 
 
@@ -143,4 +203,10 @@ h3{
     .showOnSmall {
         display: block;
     }
+}
+
+.container{
+
+	margin-left: 0;
+	
 }

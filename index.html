@@ -49,21 +49,26 @@
 						<p class="ratingText col-sm-2 hideOnSmall"> Above Average </p> 
 						<p class="ratingText col-sm-2 hideOnSmall" > Well Above Average </p>
 					</div> <br>
-					
+					<div class="sliderDiv">
 						 <div class="ticks" id="ticks1">
-							<span class="tick"> . </span>
-							<span class="tick"> . </span>
-							<span class="tick"> . </span>
-							<span class="tick"> . </span>
-							<span class="tick"> . </span>
+							 
+							<span class="tick" id="activeTick1"> . </span>
+							<span class="tick" id="activeTick2"> . </span>
+							<span class="tick" id="activeTick3"> . </span>
+							<span class="tick" id="activeTick4"> . </span>
+							<span class="tick" id="activeTick5"> . </span>
 						 </div>
-					<input type="range" id="activity" min=1 max=5 class="rangeSlider">
+						<div id="leftCover1"></div>
+						<div id="rightCover1"></div>
+						<input type="range" id="activity" min=1 max=5 class="rangeSlider">
+					</div>
 				</div>
 			</div>
 
-			<div id="muscleBox" class="greySegment segment" >
+			<div id="muscleBox" class="segment greySegment" >
 				<h3>Rate your Muscle Mass </h3>
 				<div class="container">
+					
 					<div class="row ratingTextDiv">
 						<p class="ratingText col-sm-2 showOnSmall"> <span class="vLo">Very Low</span><span>Very High </span></p> 
 						<p class="ratingText col-sm-2 hideOnSmall" id="muscle1"> Well Below Average</p> 
@@ -72,16 +77,19 @@
 						<p class="ratingText col-sm-2 hideOnSmall" id="muscle4"> Above Average </p> 
 						<p class="ratingText col-sm-2 hideOnSmall" id="muscle5"> Well Above Average </p>
 					</div> <br>
-					
-					 <div class="ticks" id="ticks1">
-							<span class="tick"> . </span>
-							<span class="tick"> . </span>
-							<span class="tick"> . </span>
-							<span class="tick"> . </span>
-							<span class="tick"> . </span>
-						 </div>
-					<input type="range" id="muscle" min=1 max=5 class="rangeSlider">
-					
+					<div class="sliderDiv">
+						 <div class="ticks" id="ticks1">
+								<span class="tick" id="muscleTick1"> . </span>
+								<span class="tick" id="muscleTick2"> . </span>
+								<span class="tick" id="muscleTick3"> . </span>
+								<span class="tick" id="muscleTick4"> . </span>
+								<span class="tick" id="muscleTick5"> . </span>
+							 </div>
+						<div id="leftCover2"></div>
+						<div id="rightCover2"></div>
+						<input type="range" id="muscle" min=1 max=5 class="rangeSlider">
+						
+					</div>
 				
 				</div>
 			</div>
