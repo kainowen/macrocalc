@@ -75,7 +75,3 @@ submit.click( function(){
 	
 	
 }); 
-
-
-
-
