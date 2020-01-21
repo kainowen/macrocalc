@@ -38,6 +38,12 @@ h3{
 }
 
 
+.radioDiv {
+	
+	margin-top: 10px;	
+	
+}
+
 #target {
 	
 	background-color: black;	
@@ -51,6 +57,11 @@ h3{
 	
 }
 
+.unitText{
+
+	font-size: 12px;
+	
+}
 
 #submit{
 	
