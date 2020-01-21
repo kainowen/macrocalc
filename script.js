@@ -5,7 +5,25 @@ var submit = $("#submit");
 submit.click( function(){
 	
 	var weight = $("#weight").val();
+	var imperialWeight = $("#imperialWeight").prop("checked");
+	
+	if (imperialWeight){
+		
+		weight = Math.round(weight/2.2);
+			
+	}
+	
+	
+	
 	var height = $("#height").val();
+	var imperialHeight = $("#imperialHeight").prop("checked");
+	
+	if (imperialHeight){
+		
+		height = Math.round(height*2.54);
+			
+	}
+	
 	var activity = parseInt($("#activity").val(),10);
 	var muscle = parseInt($("#muscle").val(),10);
 	
@@ -18,7 +36,8 @@ submit.click( function(){
 	var gain = $("#goalGain").prop("checked");
 	var forcedGain = $("#goalRapidGain").prop("checked");
 	
-
+	
+	
 	
 	function genderLVL() {
 		if (male) {

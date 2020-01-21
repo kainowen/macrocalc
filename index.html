@@ -28,6 +28,14 @@
 					<input type="number" id="weight" placeholder="75" class="form-control col-md-4">
 					<div class="col-md-8"></div>
 				</div>
+				<div class="row">
+					<div class="radioDiv col-lg unitText">
+						<label for="metricWeight"> Metric (kg) </label>
+						<input type="radio" id="metricWeight" name="weightUnit" class="radioButton" checked>	
+						<label for="imperialWeight"> Imperial (lbs) </label>
+						<input type="radio" id="imperialWeight" name="weightUnit" class="radioButton">
+					</div>
+				</div>
 			</div>
 
 			<div id="heightBox" class="greySegment segment" >
@@ -35,6 +43,14 @@
 				<div class="row txtIn">
 					<input type="number" id="height" placeholder="175" class="form-control col-md-4 ">
 					<div class="col-md-8"></div>
+				</div>
+				<div class="row">
+					<div class="radioDiv col-lg unitText">
+						<label for="metricHeight"> Metric (cm) </label>
+						<input type="radio" id="metricHeight" name="heightUnit" class="radioButton" checked>	
+						<label for="imperialHeight"> Imperial (in) </label>
+						<input type="radio" id="imperialHeight" name="heightUnit" class="radioButton">
+					</div>
 				</div>
 			</div>
 
@@ -142,18 +158,18 @@
 				<div class="row">
 					<div id="trainingDayMacros" class="macrosBreakdown col-md-4" >
 						<h3> Training Day Macros </h3>
+						<h4 class="targetText" id="caloriesText"> Calories:</h4>
 						<p class="targetText" id="carbsText"> Carbs:</p>
 						<p class="targetText" id="proteinText"> Protein:</p>
 						<p class="targetText" id="fatsText" > Fats:</p>
-						<p class="targetText" id="caloriesText"> Calories:</p>
 					</div>   
 					<div class="col-md-2"></div>
 					 <div id="restDayMacros" class="macrosBreakdown col-md-4" >
 						<h3> Rest Day Macros </h3>
+						<h4 class="targetText" id="restCaloriesText"> Calories:</h4>
 						<p class="targetText" id="restCarbsText"> Carbs:</p>
 						<p class="targetText" id="restProteinText"> Protein:</p>
 						<p class="targetText" id="restFatsText" > Fats:</p>
-						<p class="targetText" id="restCaloriesText"> Calories:</p>
 					</div>
 				</div>
 			</div>
