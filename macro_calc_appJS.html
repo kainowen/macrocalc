@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+   	<link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="app.min.css">
+    <style>
+		body, .app-section{
+	
+			font-family: helvetica;
+			margin: 0;
+			padding: 0;
+			
+		}
+	
+		.header{
+			
+			background-color: #4B4B4C;
+			color: white;
+			padding: 20px 30px 20px 50px;	
+			border-radius: 20px !important;
+		}
+		
+		h1{
+			
+		font-size: 3rem;
+		font-weight: bold;
+			
+		}
+		
+		h3{
+			
+			font-size: 1.5rem;
+			
+		}
+		
+		.app-topbar{
+			
+			vertical-align: center !important;
+			
+		}
+		
+		.app-input{
+			
+			height: 50px;
+			border-radius: 25px;
+			padding:5px;
+			padding-left: 30px;
+			border: solid 1px gray;
+			margin: 10px 0;
+			
+		}
+		
+		.app-input:hover, .app-input:active{
+			
+			border: solid 3px #910C07;	
+			
+		}
+		
+		#alertModal{
+			
+			display: none;
+			position: fixed;
+			z-index: 1;
+			overflow: auto;
+			text-align: center;
+			background-color: #4B4B4C;
+			color: white;
+			font-size: 1rem;
+			border-radius: 30px;
+			margin: 10px;
+			padding: 10px;
+			
+		}
+		
+		.button{
+		
+			height: 40px;
+			border-radius: 20px;
+			border: none;
+			background-color: #910C07 !important;
+			color: white !important;
+			font-weight: bold;
+			margin: 10px;
+			font-size: 16px;
+			cursor: pointer;
+			
+		}
+		
+		
+		.segment{
+			
+			padding: 20px 40px 20px 40px;	
+			
+		}
+
+		.oddSeg{
+			
+			background-color: #EFEFEF;	
+			
+		}
+		
+		
+		.divHeight{
+			
+			height: 150px;
+			
+		}
+		
+		.radioDiv{
+			
+			float: left;
+			width: 20%;
+			height: 75px;
+			text-align: center;
+			padding: 2px;
+			
+		}
+
+		
+		.hideOnSmall {
+			
+			text-align: center;
+			float: left;
+			width: 20%;
+			
+		}
+		
+		@media only screen and (max-width: 575px) {
+			
+    	.hideOnSmall {
+			
+        	display: none;
+	
+		}
+			
+    }
+
+		@media only screen and (max-width: 575px) {
+			
+			.showOnSmall {
+				
+				display: block;
+
+			}
+			
+		}
+
+		.rangeSlider {
+
+			-webkit-appearance: none; 
+			appearance: none;
+			height: 2px; 
+			background: #000000; 
+			outline: none; 
+			-webkit-transition: .2s; 
+			transition: opacity .2s;
+		}
+
+		.rangeSlider::-webkit-slider-thumb {
+			-webkit-appearance: none; 
+			position: relative;
+			appearance: none;
+			width: 20px;
+			height: 20px; 
+			background: #910C07; 
+			cursor: pointer;
+			border-radius: 50%;
+
+		}
+		
+		.radioButton{
+			
+			margin-right: 5px;	
+			
+		}
+		
+		.adjustRules{
+			padding: 10px;
+			cursor: pointer;
+		}
+		
+		.rule{
+			
+			display: none;
+		}
+		
+		.redText{
+			
+			color: #910C07;	
+			
+		}
+
+    </style>
+  </head>
+
+  <body>
+
+  	<div class="app-page" data-page="home">
+      
+		<div class="app-content">
+        	<div class="app-section">
+				<div id="heading" class="header">
+					<div>
+						<h1> Simple macro calculator </h1>
+						<p id="instructions"> Fill in the details below to get your macro targets. </p>
+					</div>
+				</div>
+
+				
+				
+			<div id="alertModal">
+				<p> Nothing within this app is to be taken as medical advice or a prescription. Do not follow any advice given within if it conflicts with the advice of a medical professional. Please seek clearence from a medical profesional before undergoing any lifestyle intervention. </p>
+				<button id="okay" class="button w-25" data-target="home" > Ok! </button>
+			</div>
+
+				
+				
+				
+				<div id="weightBox" class="segment">
+					<h3> Weight: </h3>
+					<div>
+						<input type="number" id="weight" placeholder="75" class="app-input">
+					</div>
+					<div class="unitText">
+						<label for="metricWeight"> Metric (kg) </label>
+						<input type="radio" id="metricWeight" name="weightUnit" class="radioButton" checked>	
+						<label for="imperialWeight"> Imperial (lbs) </label>
+						<input type="radio" id="imperialWeight" name="weightUnit" class="radioButton">
+					</div>
+				</div>
+
+			
+			
+				<div id="heightBox" class="segment oddSeg" >
+					<h3> Height: </h3>
+					<div>
+						<input type="number" id="height" placeholder="175" class="app-input ">
+					</div>
+					<div class="unitText">
+						<label for="metricHeight"> Metric (cm) </label>
+						<input type="radio" id="metricHeight" name="heightUnit" class="radioButton" checked>	
+						<label for="imperialHeight"> Imperial (in) </label>
+						<input type="radio" id="imperialHeight" name="heightUnit" class="radioButton">
+					</div>
+				</div>
+
+			
+			
+				<div class="segment">
+					<h3>Gender</h3 >
+					<input type="radio" id="genderMale" name="gender" checked>
+						<label for="genderMale"> Male </label><br>
+					<input type="radio" id="genderFemale" name="gender">
+						<label for="genderFemale"> Female </label>
+				</div>
+
+			
+			
+				<div id="activityBox" class="segment oddSeg">
+					<h3> Activity Level </h3>
+					<div class="ratingTextDiv px-1 col-md clearfix">
+						<p class="ratingText d-inline d-sm-none px-3"> 
+							<span class="float-left">Very Low</span><span class="float-right">Very High </span>
+						</p> 
+						<p class="ratingText hideOnSmall"> Well Below Average</p> 
+						<p class="ratingText hideOnSmall">Below Average </p> 
+						<p class="ratingText hideOnSmall"> Average</p> 
+						<p class="ratingText hideOnSmall"> Above Average </p> 
+						<p class="ratingText hideOnSmall" > Well Above Average </p>
+					</div> 
+					<br>
+						<div class="sliderDiv col-md">
+							<input type="range" id="activity" min=1 max=5 class="rangeSlider col-md">
+						</div>
+				</div>
+
+			
+			
+			<div id="muscleBox" class="segment" >
+				<h3>Rate your Muscle Mass </h3>
+					<div class="ratingTextDiv px-1 col-md clearfix">
+						<p class="ratingTextDiv d-inline d-sm-none px-3"> 
+							<span class="float-left">Very Low</span><span class="float-right">Very High </span>
+						</p> 
+						<p class="ratingText hideOnSmall" id="muscle1"> Well Below Average</p> 
+						<p class="ratingText hideOnSmall" id="muscle2">Below Average </p> 
+						<p class="ratingText hideOnSmall" id="muscle3"> Average</p> 
+						<p class="ratingText hideOnSmall" id="muscle4"> Above Average </p> 
+						<p class="ratingText hideOnSmall" id="muscle5"> Well Above Average </p>
+					</div> 
+					<br>
+					<div class="sliderDiv col-md">
+	 					<input type="range" id="muscle" min=1 max=5 class="rangeSlider col-md">
+					</div>
+				</div>
+
+			
+			
+				<div id="goalDiv" class="segment oddSeg divHeight">
+					<h3> Current Goal </h3>
+					<div class="radioDivBox">
+						<div class="radioDiv">
+							<label for="goalRapidLoss"> Rapid fat loss </label>
+							<input type="radio" id="goalRapidLoss" name="goal" class="col-sm">
+						</div>
+
+						<div class="radioDiv">
+							<label for="goalLoss"> Steady fat loss </label>
+							<input type="radio" id="goalLoss" name="goal" class="col-sm">
+						</div>
+
+						<div class="radioDiv">
+							<label for="goalRecomp" checked> Maintain/ Recomp</label> 
+							<input type="radio" id="goalRecomp" name="goal" checked class="col-sm">        
+						</div>
+
+						<div class="radioDiv">
+							<label for="goalGain"> Lean gain </label>
+							<input type="radio" id="goalGain" name="goal" class="col-sm">
+						</div>
+
+						<div class="radioDiv">
+							<label for="goalRapidGain"> Forced gain </label>
+							<input type="radio" id="goalRapidGain" name="goal" class="col-sm">
+						</div>
+					</div>
+				</div>
+
+
+			
+				<div id="button" class="segment clearfix text-center">
+					<button id="submit" class="app-button button col-sm-3" data-target="targets" > Calclulate </button>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+    <div class="app-page" data-page="targets">
+    	<div class="app-topbar  ">
+        	<div class="app-button left" data-target="home" data-autotitle> Calculator </div>
+			<div class="app-button right" data-target="adjusting"> Adjusting macros</div>
+
+      	</div>
+      	<div class="app-content">
+        	
+			<div id="target" class="segment">
+				<h2 class="font-weight-bold"> MACRO TARGETS </h2>
+				<h4 id="targetGoal"> Goal: </h4>
+				<p class="mb-4"> Remember: Any macro calculation is only a staring point. Trial these numbers for a few weeks while monitoring your progress then adjust accordingly. To learn to adjust your macros properly hit the button at the bottom of the page.</p>
+			<div>
+					
+			<div id="trainingDayMacros" class="macrosBreakdown clearfix">
+				<h2 class="font-weight-bold"> Training day macros </h2>
+				<div class="float-left">
+					<h4 class="targetText m-0" id="caloriesText"> Calories:</h4>
+					<h4 class="targetText m-0" id="proteinText"> Protein:</h4>
+				</div> 
+				<div class="float-right text-right">
+					<p class="targetText" id="fatsText" > Fats:</p>
+					<p class="targetText" id="carbsText"> Carbs:</p>
+					<p class="targetText">
+						<small id ="trainingSugar">Sugar: </small> 
+						<small id="trainingFiber"> Fibre: </small>
+					</p>	
+				</div>	
+			</div>
+			<hr class="clearfix">
+			<div id="restDayMacros" class="macrosBreakdown clearfix" >
+				<h2 class="font-weight-bold"> Rest day macros </h2>
+				<div class="float-left">		
+					<h4 class="targetText m-0" id="restCaloriesText"> Calories:</h4>
+					<h4 class="targetText m-0" id="restProteinText"> Protein:</h4>	
+				</div>
+				<div class="float-right text-right">
+					<p class="targetText" id="restFatsText" > Fats:</p>
+					<p class="targetText" id="restCarbsText"> Carbs:</p>
+					<p class="targetText">
+						<small id ="restSugar">Sugar: </small> 
+						<small id="restFiber"> Fibre: </small>
+					</p>
+				</div>	
+			</div>
+			<hr class="clearfix text-center">
+			<button class="app-button button col-md-3" data-target="adjusting"> Adjusting Macros </button>
+		</div>
+      </div>
+  </div>
+			
+			
+	<div class="app-page" data-page="adjusting">
+    	<div class="app-topbar">
+        	<div class="app-button left" data-target="targets"> Results </div>
+			<div class="app-button right" data-target="home" data-autotitle> Calculator </div>
+
+      	</div>
+      	<div class="app-content">
+			<div class="segment">
+				<h2 class="font-weight-bold"> Adjusting your macros </h2>
+				<p> When it comes to adjusting your macros it's important to remember to go slow. While it can be easy to want to get it right the first time, every human is different and responds differently to different macro breakdowns. Two different people with the exact same measurments can respond wildly different to the same things, so follow these simple steps to adjust your macros once you have them. </p>
+				<br>
+			
+				<ul class="app-section">
+					<li class="adjustRules"> <h4> Rule #1 </h4><p class="rule"> Don't adjust any more often than every 2 weeks, ideally every 4 weeks.</p></li><hr>
+					<li class="adjustRules"> <h4> Rule #2 </h4><p class="rule"> Your main priorities are total calorie intake and protein intake </p></li><hr>
+					<li class="adjustRules">  <h4> Rule #3 </h4><p class="rule"> If your weight isn't shifting make sure you're eating  mostly good quality, whole foods. While some treats are an important part of a balanced lifestyle, getting too many calories from "junk" foods can hinder results. Before adjusting macros make sure you're getting at least 80% of your nutrition from unprocessed foods.</p></li><hr>
+					<li class="adjustRules">  <h4> Rule #4 </h4><p class="rule"> Start by adjusting your carbohydrate intake. Lower or increase (depending on your goal) it by 10 to 25g a day.</p></li><hr>
+					<li class="adjustRules">  <h4> Rule #5 </h4><p class="rule"> Try not to go lower than 1x your bodyweight in kg in grams on training days. <small>i.e. If you weigh 70kg, do not eat less than 70g of carbohydrates on traning days.</small></p></li><hr>
+					<li class="adjustRules">  <h4> Rule #6 </h4><p class="rule"> Once you reach the bottom end of carbohydrate intake, if weight is still not moving start reducing fat intake. Lower it by 5 to 10g a day for 2 weeks</p></li><hr>
+					<li class="adjustRules">  <h4> Rule #7 </h4><p class="rule"> DO NOT GO LOWER THAN 0.5g/kg OF BODYWEIGHT <small> i.e. if your weigh 70kg, do not eat less than 35g of fat a day.</small></p></li><hr>
+					<li class="adjustRules">  <h4> Rule #8 </h4><p class="rule"> If you are trying to gain weight and struggling to eat enough, you may find it easier to increase calories from fats. Start by adding 5 to 10g a day for two weeks. Be careful with this method as it may lead to more fat gain than adding carbohydrates.</p></li><hr>
+					<li class="adjustRules">  <h4> Rule #9 </h4><p class="rule"> One good reason for weight loss stalling is that you've reapped all the reqards from your current macro intake. It may be time to recalabrate. Head back to the calculator and input your most recent stats to get a more appropriate intake. </p></li><hr>
+				</ul>
+				<button class="app-button button col-md-3 my-3" data-target="home"> Calculator </button>
+				
+			</div>
+		</div>
+	</div>
+    		
+
+		
+	
+    <script src="zepto.js"></script>
+    <script src="app.min.js"></script>
+    <script>
+
+      App.controller('home', function (page) {
+  				
+		   $(page)
+    			.find('#submit')
+    			.on('click', function () {
+						
+						var weight = $("#weight").val();
+						var imperialWeight = $("#imperialWeight").prop("checked");
+
+						if (imperialWeight){
+
+							weight = Math.round(weight/2.2);
+
+						}
+
+
+
+						var height = $("#height").val();
+						var imperialHeight = $("#imperialHeight").prop("checked");
+
+						if (imperialHeight){
+
+							height = Math.round(height*2.54);
+
+						}
+
+						var activity = parseInt($("#activity").val(),10);
+						var muscle = parseInt($("#muscle").val(),10);
+
+						var male = $("#genderMale").prop("checked");
+						var female = $("#genderFemale").prop("checked");
+
+						var rapidFatLoss = $("#goalRapidLoss").prop("checked");
+						var fatLoss = $("#goalLoss").prop("checked");
+						var recomp = $("#goalRecomp").prop("checked");
+						var gain = $("#goalGain").prop("checked");
+						var forcedGain = $("#goalRapidGain").prop("checked");
+
+
+
+
+						function genderLVL() {
+							if (male) {
+								return 0;	
+							} else {
+								return 1;
+							}};
+						var gender = parseInt(genderLVL(),10);
+
+
+
+						function goalLVL() {
+							if (rapidFatLoss) {
+								return -2;	
+							} else if (fatLoss) {
+								return -1;
+							} else if (recomp) {
+								return 0;
+							} else if (gain) {
+								return 1;
+							} else if (forcedGain) {
+								return 2;
+							}};
+
+						var goal = parseInt(goalLVL(),10);
+
+			   			if (goal == -2){
+							
+							$("#targetGoal").html("Goal: Rapid fat loss");
+			   
+						} else if (goal == -1){
+							
+							$("#targetGoal").html("Goal: Fat loss");
+			   
+						} else if (goal == 0){
+							
+							$("#targetGoal").html("Goal: Maintenance");
+			   
+						} else if (goal == 1){
+							
+							$("#targetGoal").html("Goal: Lean gain");
+			   
+						} else if (goal == 2){
+							
+							$("#targetGoal").html("Goal: Forced gain");
+			   
+						};
+							
+						var trainingFatText = $("#fatsText");
+						var trainingProteinText = $("#proteinText");
+						var trainingCarbsText = $("#carbsText");
+							var trainingSugarText = $("#trainingSugar");
+							var trainingFiberText = $("#trainingFiber");
+						var trainingKcalsText = $("#caloriesText");
+
+						var restFatText = $("#restFatsText");
+						var restProteinText = $("#restProteinText");
+						var restCarbsText = $("#restCarbsText");
+							var restSugarText = $("#restSugar");
+							var restFiberText = $("#restFiber");
+						var restKcalsText = $("#restCaloriesText");
+
+						var protein =Math.round(((height - 30) * (1-(0.15*gender))) + (muscle * 10));
+							trainingProteinText.html("Protein: " + protein + "g");
+							restProteinText.html("Protein: " + protein + "g");
+						var fat =Math.round(weight * (0.55 + (0.15 * (activity - gender))));
+							trainingFatText.html("Fat: " + fat + "g");
+							restFatText.html("Fat: " + fat + "g");
+
+						var trainingCarbs = Math.round((weight * 4) + (weight * goal)) ;
+							trainingCarbsText.html("Carbs: " + trainingCarbs + "g");
+						var trainingFiber = Math.round(weight/2);
+							trainingFiberText.html("Fiber: " + trainingFiber + "g");
+						var trainingSugar = Math.round(trainingCarbs/4);
+							trainingSugarText.html("Sugar: " + trainingSugar + "g");
+
+						var restCarbs = Math.round((weight * 3) + (weight * goal)) ;
+							restCarbsText.html("Carbs: " + restCarbs + "g");
+						var restFiber = Math.round(weight/2);
+							restFiberText.html("Fiber: " + restFiber + "g");
+						var restSugar = Math.round(restCarbs/4);
+							restSugarText.html("Sugar: " + restSugar + "g");
+
+
+
+						var trainingKcals = Math.round(((protein + trainingCarbs)*4)+(fat*9));
+							trainingKcalsText.html("Calories: " + trainingKcals);
+						var restKcals = Math.round(((protein + restCarbs)*4)+(fat*9));
+							restKcalsText.html("Calories: " + restKcals);
+
+				});
+		  
+      });
+
+      App.controller('targets', function (page) {
+
+	  
+	  });
+		
+		
+	  App.controller('adjusting', function (page) {
+		  
+		  
+		    $(page)
+    			.find('.adjustRules')
+    			.on('click', function () {
+								      				
+					$(this).children("p").toggle();
+				
+				
+				});
+			
+		  
+	  });
+
+
+      try {
+        App.restore();
+      } catch (err) {
+        App.load('home', function(){
+		
+			$("#alertModal").show();
+			
+		});	
+      }
+		
+		
+	$("#okay").click(function(){
+			
+		$("#alertModal").hide();
+			
+	});
+		
+		
+
+
+		
+		
+    </script>
+  </body>
+</html>
